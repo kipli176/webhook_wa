@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    command: npm run dev
+    container_name: webhook_kartun
+    # image: webhook_kartun # Pull the image from Docker Hub
+    # restart: always
+    ports:
+      - "3002:3000"
+    environment:
+      - MONGODB=mongodb+srv://
+      - WAPI=http://
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
