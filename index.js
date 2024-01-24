@@ -71,7 +71,7 @@ replyPesan(dari, mid, 'Ini adalah kontak CS kami yang bisa kamu hubungi,\r\n');
             replyPesanKontak(dari, mid, '6288985042844');
             replyPesanKontak(dari, mid, '6288983212915');
         } else if (type == 'message' && chat.charAt(0) == "#") {
-herc.question({model:"v3-beta",content:chat.substring(1)}).then(response => {
+herc.question({model:"v3",content:chat.substring(1)}).then(response => {
 console.log(response.reply);
 replyPesan(dari, mid, response.reply);
 
@@ -157,5 +157,6 @@ function replyPesanKontak(cid, mid, data) {
             }
         });
 }
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
